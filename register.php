@@ -1,0 +1,89 @@
+<?php
+
+
+require_once 'core/init.php';
+
+if (Input::exists()) {
+    if(Token::check(Input::get('token'))) {
+        $validate = new Validate();
+        $validate->check($_POST, array(
+            'name' => array(
+                'name' => 'Name',
+                'required' => true,
+                'min' => 2,
+                'max' => 50
+            ),
+            'username' => array(
+                'name' => 'Username',
+                'required' => true,
+                'min' => 2,
+                'max' => 20,
+                'unique' => 'users'
+            ),
+            'password' => array(
+                'name' => 'Password',
+                'required' => true,
+                'min' => 6
+            ),
+            'password_again' => array(
+                'required' => true,
+                'matches' => 'password'
+            ),
+        ));
+
+        if ($validate->passed()) {
+            $user = new User();
+
+            try {
+                $user->create(array(
+                    'name' => Input::get('name'),
+                    'username' => Input::get('username'),
+                    'password' => Hash::encryptPassword(Input::get('password')),
+                    'joined' => date('Y-m-d H:i:s'),
+                    'group' => 1
+                ));
+
+                Session::flash('home', 'Welcome ' . Input::get('username') . '! Your account has been registered. You may now log in.');
+                Redirect::to('index.php');
+            } catch(Exception $e) {
+                echo $e->getTraceAsString(), '<br>';
+            }
+        } else {
+            foreach ($validate->errors() as $error) {
+                echo $error . "<br>";
+            }
+        }
+    }
+}
+?>
+
+<?php include 'header.php'; ?>
+<div class="text-center mt-4">
+    <h1 class="display-9">Registrasi</span></h1>
+</div>
+<div class="container">
+    <form class="mt-5" action="" method="post">
+        <div class="mt-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" name="name" value="<?php echo escape(Input::get('name')); ?>" id="name" class="form-control">
+        </div>
+
+        <div class="mt-3">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" name="username" id="username" value="<?php echo escape(Input::get('username')); ?>" class="form-control">
+        </div>
+
+        <div class="mt-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" name="password" id="password" class="form-control">
+        </div>
+
+        <div class="mt-3">
+            <label for="password_again" class="form-label">Password Again</label>
+            <input type="password" name="password_again" id="password_again" value="" class="form-control">
+        </div>
+
+        <input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
+        <input type="submit" value="Register" class="btn btn-primary mt-3">
+    </form>
+</div>
