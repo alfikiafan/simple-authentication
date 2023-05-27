@@ -10,14 +10,17 @@
 
     <script>
       document.addEventListener("DOMContentLoaded", function() {
-        var togglePassword = document.querySelector('.toggle-password');
-        var passwordField = document.querySelector(togglePassword.getAttribute('toggle'));
+        var togglePasswords = document.querySelectorAll('.toggle-password');
 
-        togglePassword.addEventListener('click', function () {
-          var type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
-          passwordField.setAttribute('type', type);
-          this.classList.toggle('fa-eye');
-          this.classList.toggle('fa-eye-slash');
+        togglePasswords.forEach(function(togglePassword) {
+          var passwordField = document.querySelector(togglePassword.getAttribute('toggle'));
+
+          togglePassword.addEventListener('click', function () {
+            var type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordField.setAttribute('type', type);
+            this.classList.toggle('fa-eye');
+            this.classList.toggle('fa-eye-slash');
+          });
         });
       });
     </script>

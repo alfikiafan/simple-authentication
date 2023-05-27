@@ -77,7 +77,7 @@ if (Input::exists()) {
                 </div>
                 <div class="form-group">
                     <input type="password" name="password" id="password" placeholder="Password" class="form-control">
-                  <span toggle="#password" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                    <span toggle="#password" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                 </div>
                 <div class="form-group">
                     <input type="password" name="password_again" id="password_again" value="" placeholder="Password Again" class="form-control">
