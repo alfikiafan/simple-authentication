@@ -23,14 +23,20 @@ if(Input::exists()) {
                 echo '<p>Nama pengguna atau password tidak sesuai</p>';
             }            
         } else {
-            foreach($validate->errors() as $error) {
-                echo '<p class="text-danger mb-0">' . $error . '</p>';
-            }
+          $errors = $validate->errors();
         }
     }
 }
 ?>
 <?php include 'header.php'; ?>
+
+<?php if (!empty($errors)) : ?>
+  <div class="alert p-1 mt-1">
+      <?php foreach ($errors as $error) : ?>
+          <div class="alert-danger p-2 mb-1"><?php echo $error; ?></div>
+      <?php endforeach; ?>
+  </div>
+<?php endif; ?>
 
 <section class="ftco-section">
       <div class="container mt-5">

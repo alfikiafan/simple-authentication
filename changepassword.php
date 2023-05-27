@@ -19,7 +19,7 @@ if (Input::exists()) {
                 'required' => true,
                 'min' => 6
             ),
-            'new_password_again' => array(
+            'new_confirm-password' => array(
                 'required' => true,
                 'min' => 6,
                 'matches' => 'new_password'
@@ -55,16 +55,16 @@ if (Input::exists()) {
                 <span toggle="#new_password" class="fa fa-fw fa-eye field-icon toggle-password"></span>
             </div>
             <div class="form-group">
-                <input type="password" name="new_password_again" id="new_password_again" class="form-control" placeholder="Confirm Password" required>
+                <input type="password" name="new_confirm-password" id="new_confirm-password" class="form-control" placeholder="Confirm Password" required>
             </div>
             <div class="form-group">
                 <input type="hidden" name="token" id="token" value="<?php echo escape(Token::generate()); ?>">
                 <input type="submit" class="form-control btn btn-primary submit px-3" value="Change Password">
             </div>
             <?php if (isset($errors)) : ?>
-                <div class="mt-3">
+                <div class="alert p-1 mt-1">
                     <?php foreach ($errors as $error) : ?>
-                        <div class="alert alert-danger"><?php echo $error; ?></div>
+                        <div class="alert-danger p-2 mb-1"><?php echo $error; ?></div>
                     <?php endforeach; ?>
                 </div>
             <?php endif; ?>

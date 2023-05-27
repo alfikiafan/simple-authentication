@@ -23,7 +23,7 @@ if (Input::exists()) {
                 'required' => true,
                 'min' => 6
             ),
-            'password_again' => array(
+            'confirm-password' => array(
                 'required' => true,
                 'matches' => 'password'
             ),
@@ -47,15 +47,20 @@ if (Input::exists()) {
                 echo $e->getTraceAsString(), '<br>';
             }
         } else {
-            foreach ($validate->errors() as $error) {
-                echo '<p class="text-danger mb-0">' . $error . '</p>';
-            }
+          $errors = $validate->errors();
         }
     }
 }
 ?>
 
 <?php include 'header.php'; ?>
+<?php if (!empty($errors)) : ?>
+  <div class="alert p-1 mt-1">
+      <?php foreach ($errors as $error) : ?>
+          <div class="alert-danger p-2 mb-1"><?php echo $error; ?></div>
+      <?php endforeach; ?>
+  </div>
+<?php endif; ?>
 
     <section class="ftco-section">
       <div class="container">
@@ -80,7 +85,7 @@ if (Input::exists()) {
                     <span toggle="#password" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                 </div>
                 <div class="form-group">
-                    <input type="password" name="password_again" id="password_again" value="" placeholder="Password Again" class="form-control">
+                    <input type="password" name="confirm-password" id="confirm-password" value="" placeholder="Confirm Password" class="form-control">
                 </div>
                 <div class="form-group">
                   <input type="hidden" name="token" value="<?php echo Token::generate(); ?>">

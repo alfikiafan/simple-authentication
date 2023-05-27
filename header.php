@@ -22,7 +22,17 @@
             this.classList.toggle('fa-eye-slash');
           });
         });
-      });
+
+        var errorMessages = document.querySelectorAll('.alert-danger');
+
+        if (errorMessages) {
+            errorMessages.forEach(function(message) {
+                setTimeout(function() {
+                    message.remove();
+                }, 2000);
+            });
+        }
+    });
     </script>
   </head>
   <body style="background-image: url(images/a.jpg);">

@@ -62,11 +62,11 @@ if (Input::exists()) {
         </form>
 
         <?php if (!empty($errors)) : ?>
-            <div class="mt-3">
-                <?php foreach ($errors as $error) : ?>
-                    <div class="alert alert-danger"><?php echo $error; ?></div>
-                <?php endforeach; ?>
-            </div>
+        <div class="alert p-1 mt-1">
+            <?php foreach ($errors as $error) : ?>
+                <div class="alert-danger p-2 mb-1"><?php echo $error; ?></div>
+            <?php endforeach; ?>
+        </div>
         <?php endif; ?>
     </div>
 </body>
