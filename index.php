@@ -7,7 +7,7 @@ $user = new User();
 if ($user->isLoggedIn()) {
     $username = escape($user->data()->username);
 ?>
-<?php include 'header.php'; ?>
+<?php include 'resources.php'; ?>
 
 <?php if (Session::exists('success')) : ?>
   <div class="alert alert-success">

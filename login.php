@@ -36,7 +36,7 @@ if(Input::exists()) {
     }
 }
 ?>
-<?php include 'header.php'; ?>
+<?php include 'resources.php'; ?>
 
 <?php if (!empty($errors)) : ?>
   <div class="alert p-1 mt-1">

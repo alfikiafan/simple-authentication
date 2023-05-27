@@ -56,4 +56,4 @@
       });
     </script>
   </head>
-  <body style="background-image: url(images/a.jpg);">
+  <body style="background-image: url(images/background.jpg);">

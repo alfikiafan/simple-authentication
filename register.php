@@ -67,7 +67,7 @@ if (Input::exists()) {
 }
 ?>
 
-<?php include 'header.php'; ?>
+<?php include 'resources.php'; ?>
 <?php if (!empty($errors)) : ?>
   <div class="alert p-1 mt-1">
       <?php foreach ($errors as $error) : ?>
@@ -109,7 +109,7 @@ if (Input::exists()) {
                   <input type="submit" class="form-control btn btn-primary submit px-3" value="Register">
                 </div>
                 <div class="form-group text-center">
-                  <p class="mb-0">Already have an account? <a href="login.php">Sign In</a>
+                  <p class="mb-0">Already have an account? <a href="login.php">login</a>
                   </p>
                 </div>
               </form>
