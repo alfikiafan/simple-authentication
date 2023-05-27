@@ -2,6 +2,13 @@
 
 The Simple Authentication System is a login, register, and logout system built using PHP, JavaScript, and CSS without any frameworks. It includes various constraints for input validation, session management, viewing profile details, editing profiles, and changing passwords. The system is designed using Bootstrap 4 for visually appealing user interface.
 
+## Screenshot
+![Register](https://github.com/alfikiafan/simple-authentication/blob/master/images/register.jpg?raw=true)
+
+![Login](https://github.com/alfikiafan/simple-authentication/blob/master/images/login.jpg?raw=true)
+
+![Profile](https://github.com/alfikiafan/simple-authentication/blob/master/images/profile.jpg?raw=true) 
+
 ## Usage
 To use the authentication system, follow these steps:
 
