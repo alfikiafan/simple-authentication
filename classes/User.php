@@ -2,10 +2,10 @@
 
 class User {
     private $_db,
-            $_data,
-            $_sessionName,
-            $_cookieName,
-            $isLoggedIn;
+        $_data,
+        $_sessionName,
+        $_cookieName,
+        $isLoggedIn;
 
     public function __construct($user = null) {
         $this->_db = DB::getInstance();
@@ -32,7 +32,6 @@ class User {
     }
 
     public function update($fields = array(), $id = null) {
-
         if(!$id && $this->isLoggedIn()) {
             $id = $this->data()->id;
         }
@@ -60,15 +59,12 @@ class User {
             Session::put($this->_sessionName, $this->data()->id);
         } else {
             $user = $this->find($username);
-
             if ($user) {
                 if(Hash::isValidPassword($password, $this->data()->password)) {
                     Session::put($this->_sessionName, $this->data()->id);
-
                     if ($remember) {
                         $hash = Hash::unique();
                         $hashCheck = $this->_db->get('users_session', array('user_id', '=', $this->data()->id));
-
                         if (!$hashCheck->count()) {
                             $this->_db->insert('users_session', array(
                                 'user_id' => $this->data()->id,
@@ -77,10 +73,8 @@ class User {
                         } else {
                             $hash = $hashCheck->first()->hash;
                         }
-
                         Cookie::put($this->_cookieName, $hash, Config::get('remember/cookie_expiry'));
                     }
-
                     return true;
                 }
             }
@@ -94,7 +88,6 @@ class User {
 
     public function logout() {
         $this->_db->delete('users_session', array('user_id', '=', $this->data()->id));
-
         Session::delete($this->_sessionName);
         Cookie::delete($this->_cookieName);
     }

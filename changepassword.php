@@ -29,13 +29,11 @@ if (Input::exists()) {
 
     if ($validate->passed()) {
         if (!Hash::isValidPassword(Input::get('current_password'), $user->data()->password)) {
-            
             Session::flash('error', 'Your current password is wrong.');
         } else {
             $user->update(array(
                 'password' => Hash::encryptPassword(Input::get('new_password'))
             ));
-            
             Session::flash('success', 'Your password has been changed!');
             Redirect::to("index.php?user=" . $username);
         }
@@ -44,7 +42,6 @@ if (Input::exists()) {
     }
 }
 ?>
-
     <div class="container">
         <form action="" method="post">
             <div class="form-group">
@@ -72,5 +69,4 @@ if (Input::exists()) {
         </form>
     </div>
 </body>
-
 </html>

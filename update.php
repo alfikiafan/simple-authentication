@@ -48,7 +48,6 @@ if (Input::exists()) {
     }
 }
 ?>
-
     <div class="container">
         <form action="" method="post">
             <div class="form-group mb-2">
@@ -78,5 +77,4 @@ if (Input::exists()) {
         <?php endif; ?>
     </div>
 </body>
-
 </html>

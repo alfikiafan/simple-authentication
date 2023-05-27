@@ -8,7 +8,6 @@ if (!$user->isLoggedIn()) {
 
 if(Input::exists()) {
     if(Token::check(Input::get('token'))) {
-
         $validate = new Validate();
         $validate->check($_POST, array(
             'username' => array('required' => true),
@@ -17,12 +16,10 @@ if(Input::exists()) {
 
         if($validate->passed()) {
             $user = new User();
-
             $remember = (Input::get('remember') === 'on') ? true : false;
             $login = $user->login(Input::get('username'), Input::get('password'), $remember);
 
             if ($login) {
-              
               Session::flash('success', 'You have successfully logged in.');
               Redirect::to("index.php?user=" . escape($user->data()->username));
             } else { ?>
@@ -41,7 +38,7 @@ if(Input::exists()) {
 <?php if (!empty($errors)) : ?>
   <div class="alert p-1 mt-1">
       <?php foreach ($errors as $error) : ?>
-          <div class="alert-danger p-2 mb-1"><?php echo $error; ?></div>
+      <div class="alert-danger p-2 mb-1"><?php echo $error; ?></div>
       <?php endforeach; ?>
   </div>
 <?php endif; ?>

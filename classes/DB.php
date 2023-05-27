@@ -3,10 +3,10 @@
 class DB {
     private static $_instance = null;
     private $_pdo,
-            $_query,
-            $_error = false,
-            $_results,
-            $_count = 0;
+        $_query,
+        $_error = false,
+        $_results,
+        $_count = 0;
 
     private function __construct() {
         try {
@@ -42,7 +42,6 @@ class DB {
                 $this->_error = true;
             }
         }
-
         return $this;
     }
 
@@ -61,9 +60,7 @@ class DB {
                     return $this;
                 }
             }
-
         }
-
         return false;
     }
 
@@ -85,7 +82,6 @@ class DB {
         if(!$this->query($sql, $fields)->error()) {
             return true;
         }
-
         return false;
     }
 
@@ -106,7 +102,6 @@ class DB {
         if(!$this->query($sql, $fields)->error()) {
             return true;
         }
-
         return false;
     }
 

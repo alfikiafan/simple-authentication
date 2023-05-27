@@ -2,7 +2,7 @@
 
 class Config {
     public static function get($path = null) {
-        if ($path){
+        if ($path) {
             $config = $GLOBALS['config'];
             $path = explode('/', $path);
 
@@ -11,10 +11,8 @@ class Config {
                     $config = $config[$bit];
                 }
             }
-
             return $config;
         }
-
         return false;
     }
 }

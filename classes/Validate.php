@@ -4,7 +4,6 @@ class Validate {
     private $_passed = false;
     private $_errors = array();
     private $_db = null;
-
     public function __construct() {
         $this->_db = DB::getInstance();
     }
@@ -14,7 +13,6 @@ class Validate {
             foreach($rules as $rule => $rule_value) {
                 $value = $source[$item];
                 $item = escape($item);
-
                 if($rule === 'required' && empty($value)) {
                     $this->addError("{$item} is required");
                 } else if (!empty($value)) {

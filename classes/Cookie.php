@@ -15,7 +15,7 @@ class Cookie {
         }
         return false;
     }
-
+    
     public static function delete($name) {
         self::put($name, '', time() -1);
     }
