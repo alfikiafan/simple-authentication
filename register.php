@@ -1,6 +1,4 @@
 <?php
-
-
 require_once 'core/init.php';
 
 if (Input::exists()) {
@@ -50,7 +48,7 @@ if (Input::exists()) {
             }
         } else {
             foreach ($validate->errors() as $error) {
-                echo $error . "<br>";
+                echo '<p class="text-danger mb-0">' . $error . '</p>';
             }
         }
     }
@@ -59,7 +57,6 @@ if (Input::exists()) {
 
 <?php include 'header.php'; ?>
 
-<body class="img js-fullheight" style="background-image: url(images/a.jpg);">
     <section class="ftco-section">
       <div class="container">
         <div class="row justify-content-center">
@@ -71,7 +68,7 @@ if (Input::exists()) {
           <div class="col-md-6 col-lg-4">
             <div class="login-wrap p-0">
               <h3 class="mb-4 text-center">Create an account</h3>
-              <form action="login.php" method="post" class="signin-form">
+              <form action="" method="post">
                 <div class="form-group">
                     <input type="text" name="name" value="<?php echo escape(Input::get('name')); ?>" id="name" placeholder="Name" class="form-control">
                 </div>
@@ -100,33 +97,3 @@ if (Input::exists()) {
       </div>
     </section>
   </body>
-
-<!-- <div class="text-center mt-4">
-    <h1 class="display-9">Registrasi</span></h1>
-</div>
-<div class="container">
-    <form class="mt-5" action="" method="post">
-        <div class="mt-3">
-            <label for="name" class="form-label">Name</label>
-            <input type="text" name="name" value="<?php echo escape(Input::get('name')); ?>" id="name" class="form-control">
-        </div>
-
-        <div class="mt-3">
-            <label for="username" class="form-label">Username</label>
-            <input type="text" name="username" id="username" value="<?php echo escape(Input::get('username')); ?>" class="form-control">
-        </div>
-
-        <div class="mt-3">
-            <label for="password" class="form-label">Password</label>
-            <input type="password" name="password" id="password" class="form-control">
-        </div>
-
-        <div class="mt-3">
-            <label for="password_again" class="form-label">Password Again</label>
-            <input type="password" name="password_again" id="password_again" value="" class="form-control">
-        </div>
-
-        <input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
-        <input type="submit" value="Register" class="btn btn-primary mt-3">
-    </form>
-</div> -->

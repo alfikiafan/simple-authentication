@@ -22,3 +22,4 @@
       });
     </script>
   </head>
+  <body style="background-image: url(images/a.jpg);">
