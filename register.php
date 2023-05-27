@@ -58,6 +58,52 @@ if (Input::exists()) {
 ?>
 
 <?php include 'header.php'; ?>
+
+<!-- <body class="img js-fullheight" style="background-image: url(images/a.jpg);">
+    <section class="ftco-section">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-6 text-center mb-4">
+            <h2 class="heading-section">Register</h2>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-md-6 col-lg-4">
+            <div class="login-wrap p-0">
+              <h3 class="mb-4 text-center">Create an account</h3>
+              <form action="" method="post" class="signin-form">
+                <div class="form-group">
+                  <input type="text" class="form-control" value="<?php echo escape(Input::get('name')); ?>" placeholder="Name" required>
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" value="<?php echo escape(Input::get('username')); ?>" placeholder="Username" required>
+                </div>
+                <div class="form-group">
+                  <input type="email" class="form-control" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                  <input id="password" type="password" class="form-control" placeholder="Password" required>
+                  <span toggle="#password" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                </div>
+                <div class="form-group">
+                  <input id="password_again" type="password" class="form-control" placeholder="Confirm Password" required>
+                </div>
+                <div class="form-group">
+                  <input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
+                  <input type="submit" class="form-control btn btn-primary submit px-3" value="Register">
+                </div>
+                <div class="form-group text-center">
+                  <p class="mb-0">Already have an account? <a href="login.php">Sign In</a>
+                  </p>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body> -->
+
 <div class="text-center mt-4">
     <h1 class="display-9">Registrasi</span></h1>
 </div>
