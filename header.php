@@ -33,6 +33,17 @@
             });
         }
 
+        if (window.history.replaceState) {
+          window.history.replaceState(null, null, window.location.href);
+        }
+
+        setTimeout(function() {
+          var flashMessages = document.querySelectorAll('.alert');
+          flashMessages.forEach(function(flashMessage) {
+            flashMessage.remove();
+          });
+        }, 2000);
+
         var currentUrl = window.location.href;
 
         var navLinks = document.querySelectorAll('.navbar-nav .nav-link');

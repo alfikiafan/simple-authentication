@@ -12,6 +12,18 @@ if (!$username = Input::get('user')) {
         $data = $user->data();
 ?>
 
+<?php if (Session::exists('success')) : ?>
+  <div class="alert alert-success">
+    <?php echo Session::flash('success'); ?>
+  </div>
+<?php endif; ?>
+
+<?php if (Session::exists('error')) : ?>
+  <div class="alert alert-danger">
+    <?php echo Session::flash('error'); ?>
+  </div>
+<?php endif; ?>
+
 <table class="table table-bordered table-striped text-white">
     <tbody>
       <tr>

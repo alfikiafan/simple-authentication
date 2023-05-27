@@ -29,14 +29,15 @@ if (Input::exists()) {
 
     if ($validate->passed()) {
         if (!Hash::isValidPassword(Input::get('current_password'), $user->data()->password)) {
-            echo 'Your current password is wrong.';
+            
+            Session::flash('error', 'Your current password is wrong.');
         } else {
             $user->update(array(
                 'password' => Hash::encryptPassword(Input::get('new_password'))
             ));
-
-            Session::flash('home', 'Your password has been changed!');
-            Redirect::to('index.php');
+            
+            Session::flash('success', 'Your password has been changed!');
+            Redirect::to("index.php?user=" . $username);
         }
     } else {
         $errors = $validate->errors();

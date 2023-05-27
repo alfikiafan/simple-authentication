@@ -53,8 +53,10 @@ if (Input::exists()) {
                     'group' => 1
                 ));
 
-                Session::flash('home', 'Welcome ' . Input::get('username') . '! Your account has been registered. You may now log in.');
-                Redirect::to('index.php');
+                
+                Session::flash('success', 'Your account has been registered. You may now log in.');
+                Redirect::to('login.php');
+
             } catch (Exception $e) {
                 echo $e->getTraceAsString(), '<br>';
             }

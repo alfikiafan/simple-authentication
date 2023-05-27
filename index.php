@@ -2,16 +2,24 @@
 
 require_once 'core/init.php';
 
-if(Session::exists('home')) {
-    echo '<p>' . Session::flash('home'). '</p>';
-}
-
 $user = new User();
 
 if ($user->isLoggedIn()) {
     $username = escape($user->data()->username);
 ?>
 <?php include 'header.php'; ?>
+
+<?php if (Session::exists('success')) : ?>
+  <div class="alert alert-success">
+    <?php echo Session::flash('success'); ?>
+  </div>
+<?php endif; ?>
+
+<?php if (Session::exists('error')) : ?>
+  <div class="alert alert-danger">
+    <?php echo Session::flash('error'); ?>
+  </div>
+<?php endif; ?>
 
 <section class="ftco-section">
       <div class="container">

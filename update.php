@@ -22,7 +22,11 @@ if (Input::exists()) {
                 'required' => true,
                 'min' => 2,
                 'max' => 20,
-                'unique' => 'users'
+            ),
+            'email' => array(
+                'required' => true,
+                'max' => 100,
+                'email' => true,
             )
         ));
 
@@ -32,9 +36,9 @@ if (Input::exists()) {
                     'name' => Input::get('name'),
                     'username' => Input::get('username')
                 ));
-
-                Session::flash('home', 'Your details have been updated.');
-                Redirect::to('index.php');
+                
+                Session::flash('success', 'Your details have been updated.');
+                Redirect::to("index.php?user=" . $username);
             } catch (Exception $e) {
                 die($e->getMessage());
             }

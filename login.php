@@ -22,10 +22,12 @@ if(Input::exists()) {
             $login = $user->login(Input::get('username'), Input::get('password'), $remember);
 
             if ($login) {
-                Redirect::to("index.php?user=" . escape($user->data()->username));
+              
+              Session::flash('success', 'You have successfully logged in.');
+              Redirect::to("index.php?user=" . escape($user->data()->username));
             } else { ?>
               <div class="alert p-1 mt-1">
-                <div class="alert-danger p-2 mb-1">Username and password doesn't match</div>
+                <div class="alert-danger p-2 mb-1"><span>Username and password doesn't match</span></div>
               </div>
       <?php }            
         } else {
@@ -41,6 +43,12 @@ if(Input::exists()) {
       <?php foreach ($errors as $error) : ?>
           <div class="alert-danger p-2 mb-1"><?php echo $error; ?></div>
       <?php endforeach; ?>
+  </div>
+<?php endif; ?>
+
+<?php if (Session::exists('success')) : ?>
+  <div class="alert alert-success">
+    <?php echo Session::flash('success'); ?>
   </div>
 <?php endif; ?>
 
@@ -60,7 +68,7 @@ if(Input::exists()) {
                     <input type="text" name="username" id="username" class="form-control" placeholder="Username" required>
                 </div>
                 <div class="form-group"><input name="password" id="password" type="password" class="form-control" placeholder="Password" required>
-                    <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                <span toggle="#password" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                 </div>
                 <input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
                 <div class="form-group">
