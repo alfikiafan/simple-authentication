@@ -59,7 +59,7 @@ if (Input::exists()) {
 
 <?php include 'header.php'; ?>
 
-<!-- <body class="img js-fullheight" style="background-image: url(images/a.jpg);">
+<body class="img js-fullheight" style="background-image: url(images/a.jpg);">
     <section class="ftco-section">
       <div class="container">
         <div class="row justify-content-center">
@@ -71,22 +71,19 @@ if (Input::exists()) {
           <div class="col-md-6 col-lg-4">
             <div class="login-wrap p-0">
               <h3 class="mb-4 text-center">Create an account</h3>
-              <form action="" method="post" class="signin-form">
+              <form action="login.php" method="post" class="signin-form">
                 <div class="form-group">
-                  <input type="text" class="form-control" value="<?php echo escape(Input::get('name')); ?>" placeholder="Name" required>
+                    <input type="text" name="name" value="<?php echo escape(Input::get('name')); ?>" id="name" placeholder="Name" class="form-control">
                 </div>
                 <div class="form-group">
-                  <input type="text" class="form-control" value="<?php echo escape(Input::get('username')); ?>" placeholder="Username" required>
+                    <input type="text" name="username" id="username" value="<?php echo escape(Input::get('username')); ?>" placeholder="Username" class="form-control">
                 </div>
                 <div class="form-group">
-                  <input type="email" class="form-control" placeholder="Email" required>
-                </div>
-                <div class="form-group">
-                  <input id="password" type="password" class="form-control" placeholder="Password" required>
+                    <input type="password" name="password" id="password" placeholder="Password" class="form-control">
                   <span toggle="#password" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                 </div>
                 <div class="form-group">
-                  <input id="password_again" type="password" class="form-control" placeholder="Confirm Password" required>
+                    <input type="password" name="password_again" id="password_again" value="" placeholder="Password Again" class="form-control">
                 </div>
                 <div class="form-group">
                   <input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
@@ -102,9 +99,9 @@ if (Input::exists()) {
         </div>
       </div>
     </section>
-  </body> -->
+  </body>
 
-<div class="text-center mt-4">
+<!-- <div class="text-center mt-4">
     <h1 class="display-9">Registrasi</span></h1>
 </div>
 <div class="container">
@@ -132,4 +129,4 @@ if (Input::exists()) {
         <input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
         <input type="submit" value="Register" class="btn btn-primary mt-3">
     </form>
-</div>
+</div> -->
