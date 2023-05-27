@@ -3365,7 +3365,8 @@ input[type="button"].btn-block {
 
 .nav-link {
   display: block;
-  padding: 0.5rem 1rem; }
+  padding: 0.5rem 1rem;
+  color: var(--dark) }
   .nav-link:hover, .nav-link:focus {
     text-decoration: none; }
   .nav-link.disabled {
@@ -3376,7 +3377,8 @@ input[type="button"].btn-block {
 .nav-tabs {
   border-bottom: 1px solid #dee2e6; }
   .nav-tabs .nav-item {
-    margin-bottom: -1px; }
+    margin-bottom: -1px;
+    overflow: hidden; }
   .nav-tabs .nav-link {
     border: 1px solid transparent;
     border-top-left-radius: 0.25rem;
@@ -3419,6 +3421,13 @@ input[type="button"].btn-block {
   flex-grow: 1;
   text-align: center; }
 
+.navbar-nav .nav-item .nav-link:hover {
+    color: #fff;
+    background-color: #000;
+    overflow: hidden;
+    border-radius: 1rem;
+}
+
 .tab-content > .tab-pane {
   display: none; }
 
@@ -3438,7 +3447,8 @@ input[type="button"].btn-block {
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  padding: 0.5rem 1rem; }
+  padding: 0.5rem 1rem;
+  overflow: hidden; }
   .navbar > .container,
   .navbar > .container-fluid {
     display: -webkit-box;
@@ -5500,6 +5510,9 @@ button.bg-dark:focus {
 
 .rounded-lg {
   border-radius: 0.3rem !important; }
+
+.rounded-xlg {
+  border-radius: 1rem !important; }
 
 .rounded-circle {
   border-radius: 50% !important; }
@@ -7978,6 +7991,9 @@ button.bg-dark:focus {
 
 .font-weight-normal {
   font-weight: 400 !important; }
+
+.font-weight-semibold {
+  font-weight: 500 !important; }
 
 .font-weight-bold {
   font-weight: 700 !important; }

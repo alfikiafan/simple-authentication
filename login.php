@@ -2,6 +2,10 @@
 
 require_once 'core/init.php';
 
+$user = new User();
+
+if (!$user->isLoggedIn()) {
+
 if(Input::exists()) {
     if(Token::check(Input::get('token'))) {
 
@@ -19,9 +23,11 @@ if(Input::exists()) {
 
             if ($login) {
                 Redirect::to("index.php?user=" . escape($user->data()->username));
-            } else {
-                echo '<p>Nama pengguna atau password tidak sesuai</p>';
-            }            
+            } else { ?>
+              <div class="alert p-1 mt-1">
+                <div class="alert-danger p-2 mb-1">Username and password doesn't match</div>
+              </div>
+      <?php }            
         } else {
           $errors = $validate->errors();
         }
@@ -74,3 +80,9 @@ if(Input::exists()) {
       </div>
     </section>
 </body>
+
+<?php
+
+} else {
+    Redirect::to('index.php');
+}

@@ -1,8 +1,12 @@
 <?php
 require_once 'core/init.php';
 
+$user = new User();
+
+if (!$user->isLoggedIn()) {
+
 if (Input::exists()) {
-    if(Token::check(Input::get('token'))) {
+    if (Token::check(Input::get('token'))) {
         $validate = new Validate();
         $validate->check($_POST, array(
             'name' => array(
@@ -16,6 +20,13 @@ if (Input::exists()) {
                 'required' => true,
                 'min' => 2,
                 'max' => 20,
+                'unique' => 'users'
+            ),
+            'email' => array(
+                'name' => 'Email',
+                'required' => true,
+                'max' => 100,
+                'email' => true,
                 'unique' => 'users'
             ),
             'password' => array(
@@ -36,6 +47,7 @@ if (Input::exists()) {
                 $user->create(array(
                     'name' => Input::get('name'),
                     'username' => Input::get('username'),
+                    'email' => Input::get('email'),
                     'password' => Hash::encryptPassword(Input::get('password')),
                     'joined' => date('Y-m-d H:i:s'),
                     'group' => 1
@@ -43,11 +55,11 @@ if (Input::exists()) {
 
                 Session::flash('home', 'Welcome ' . Input::get('username') . '! Your account has been registered. You may now log in.');
                 Redirect::to('index.php');
-            } catch(Exception $e) {
+            } catch (Exception $e) {
                 echo $e->getTraceAsString(), '<br>';
             }
         } else {
-          $errors = $validate->errors();
+            $errors = $validate->errors();
         }
     }
 }
@@ -81,6 +93,9 @@ if (Input::exists()) {
                     <input type="text" name="username" id="username" value="<?php echo escape(Input::get('username')); ?>" placeholder="Username" class="form-control">
                 </div>
                 <div class="form-group">
+                  <input type="text" name="email" id="email" value="<?php echo escape(Input::get('email')); ?>" placeholder="Email" class="form-control">
+                </div>
+                <div class="form-group">
                     <input type="password" name="password" id="password" placeholder="Password" class="form-control">
                     <span toggle="#password" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                 </div>
@@ -102,3 +117,9 @@ if (Input::exists()) {
       </div>
     </section>
   </body>
+
+  <?php
+
+} else {
+    Redirect::to('index.php');
+}

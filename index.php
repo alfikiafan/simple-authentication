@@ -17,30 +17,28 @@ if ($user->isLoggedIn()) {
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-md-6 text-center mb-5">
-            <h2 class="heading-section">Manajemen Akun</h2>
+            <h2 class="heading-section">Selamat Datang, <?php echo escape($user->data()->username); ?>!</h2>
           </div>
         </div>
         <div class="row justify-content-center mb-5">
-          <div class="col- mx-3">
-          <div class="text-center">
-            <a href="index.php?user=<?php echo escape($user->data()->username); ?>" class="btn btn-primary px-3 py-2">Lihat Profil</a>
-          </div>
-          </div>
-          <div class="col- mx-3">
-            <div class="text-center">
-              <a href="index.php?update" class="btn btn-primary px-3 py-2">Edit Profil</a>
+          <nav class="navbar navbar-expand-lg bg-primary rounded-pill px-2">
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav mr-auto font-weight-semibold">
+                    <li class="nav-item rounded-pill px-2">
+                        <a class="nav-link" href="index.php?user=<?php echo escape($user->data()->username); ?>">Lihat Profil</a>
+                    </li>
+                    <li class="nav-item rounded-pill px-2">
+                        <a class="nav-link" href="index.php?update">Edit Profil</a>
+                    </li>
+                    <li class="nav-item rounded-pill px-2">
+                        <a class="nav-link" href="index.php?changepassword">Ganti Password</a>
+                    </li>
+                    <li class="nav-item rounded-pill px-2">
+                        <a class="nav-link" href="logout.php">Logout</a>
+                    </li>
+                </ul>
             </div>
-          </div>
-          <div class="col- mx-3">
-            <div class="text-center">
-              <a href="index.php?changepassword" class="btn btn-warning px-3 py-2">Ganti Password</a>
-            </div>
-          </div>
-          <div class="col- mx-3">
-            <div class="text-center">
-              <a href="logout.php" class="btn btn-danger px-3 py-2">Logout</a>
-            </div>
-          </div>          
+         </nav>
         </div>
         <div class="row justify-content-center">
           <div class="col-md-6">

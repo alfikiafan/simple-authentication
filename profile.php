@@ -19,8 +19,12 @@ if (!$username = Input::get('user')) {
         <td><?php echo escape($data->username); ?></td>
       </tr>
       <tr>
-        <th>Nama</th>
+        <th>Name</th>
         <td><?php echo escape($data->name); ?></td>
+      </tr>
+      <tr>
+        <th>Email</th>
+        <td><?php echo escape($data->email); ?></td>
       </tr>
     </tbody>
   </table>
