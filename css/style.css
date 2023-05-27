@@ -3423,9 +3423,14 @@ input[type="button"].btn-block {
 
 .navbar-nav .nav-item .nav-link:hover {
     color: #fff;
-    background-color: #000;
-    overflow: hidden;
+    background-color: #1D1D1F;
     border-radius: 1rem;
+}
+
+.navbar-nav .nav-item .nav-link.selectedclass {
+  background-color: #1D1D1F;
+  color: white;
+  border-radius: 1rem;
 }
 
 .tab-content > .tab-pane {

@@ -17,7 +17,7 @@ if ($user->isLoggedIn()) {
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-md-6 text-center mb-5">
-            <h2 class="heading-section">Selamat Datang, <?php echo escape($user->data()->username); ?>!</h2>
+            <h2 class="heading-section">Welcome, <?php echo escape($user->data()->username); ?>!</h2>
           </div>
         </div>
         <div class="row justify-content-center mb-5">
@@ -25,13 +25,13 @@ if ($user->isLoggedIn()) {
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav mr-auto font-weight-semibold">
                     <li class="nav-item rounded-pill px-2">
-                        <a class="nav-link" href="index.php?user=<?php echo escape($user->data()->username); ?>">Lihat Profil</a>
+                        <a class="nav-link" href="index.php?user=<?php echo escape($user->data()->username); ?>">Profile</a>
                     </li>
                     <li class="nav-item rounded-pill px-2">
-                        <a class="nav-link" href="index.php?update">Edit Profil</a>
+                        <a class="nav-link" href="index.php?update">Edit Profile</a>
                     </li>
                     <li class="nav-item rounded-pill px-2">
-                        <a class="nav-link" href="index.php?changepassword">Ganti Password</a>
+                        <a class="nav-link" href="index.php?changepassword">Change Password</a>
                     </li>
                     <li class="nav-item rounded-pill px-2">
                         <a class="nav-link" href="logout.php">Logout</a>

@@ -32,7 +32,17 @@
                 }, 2000);
             });
         }
-    });
+
+        var currentUrl = window.location.href;
+
+        var navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+
+        navLinks.forEach(function(navLink) {
+          if (currentUrl === navLink.href) {
+            navLink.classList.add('selectedclass');
+          }
+        });
+      });
     </script>
   </head>
   <body style="background-image: url(images/a.jpg);">

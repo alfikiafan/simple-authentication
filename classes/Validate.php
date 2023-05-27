@@ -32,7 +32,7 @@ class Validate {
                             break;
                         case 'matches':
                             if($value != $source[$rule_value]) {
-                                $this->addError("{$rule_value} must match {$item}.");
+                                $this->addError("{$rule_value} must match to {$item}.");
                             }
                             break;
                         case 'unique':
