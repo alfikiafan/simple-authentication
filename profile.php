@@ -11,29 +11,19 @@ if (!$username = Input::get('user')) {
     } else {
         $data = $user->data();
 ?>
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profil Pengguna</title>
-</head>
-
-<body>
-    <div class="container">
-        <div class="card">
-            <div class="card-header">
-                <h3 class="card-title"><?php echo escape($data->username); ?></h3>
-            </div>
-            <div class="card-body">
-                <p class="card-text">Nama: <?php echo escape($data->name); ?></p>
-            </div>
-        </div>
-    </div>
-</body>
-
-</html>
+<table class="table table-bordered table-striped text-white">
+    <tbody>
+      <tr>
+        <th>Username</th>
+        <td><?php echo escape($data->username); ?></td>
+      </tr>
+      <tr>
+        <th>Nama</th>
+        <td><?php echo escape($data->name); ?></td>
+      </tr>
+    </tbody>
+  </table>
 <?php
     }
 }

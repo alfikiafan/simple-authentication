@@ -24,34 +24,47 @@ if(Input::exists()) {
             }            
         } else {
             foreach($validate->errors() as $error) {
-                echo $error, '<br>';
+                echo '<p class="text-danger mb-0">' . $error . '</p>';
             }
         }
     }
 }
 ?>
 <?php include 'header.php'; ?>
-<div class="text-center mt-4">
-    <h1 class="display-9">Masuk</span></h1>
-</div>
-<div class="container">
-<form class="mt-5" action="" method="post">
-    <div class="mt-3">
-        <label for="username" class="form-label">Username</label>
-        <input type="text" name="username" id="username" class="form-control">
-    </div>
 
-    <div class="mt-3">
-        <label for="password" class="form-label">Password</label>
-        <input type="password" name="password" id="password" class="form-control">
-    </div>
-
-    <div class="mt-3 form-check">
-        <input type="checkbox" name="remember" id="remember" class="form-check-input">
-        <label class="form-check-label" for="remember">Ingat saya</label>
-    </div>
-
-    <input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
-    <input type="submit" value="Login" class="btn btn-primary mt-3">
-</form>
-</div>
+<section class="ftco-section">
+      <div class="container mt-5">
+        <div class="row justify-content-center">
+          <div class="col-md-6 text-center mb-5">
+            <h2 class="heading-section">Login</h2>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-md-6 col-lg-4">
+            <div class="login-wrap p-0">
+              <h3 class="mb-4 text-center">Have an account?</h3>
+              <form action="" method="post" class="signin-form">
+                <div class="form-group">
+                    <input type="text" name="username" id="username" class="form-control" placeholder="Username" required>
+                </div>
+                <div class="form-group"><input name="password" id="password" type="password" class="form-control" placeholder="Password" required>
+                    <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                </div>
+                <input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
+                <div class="form-group">
+                    <input type="submit" value="Login" class="form-control btn btn-primary submit px-3">
+                </div>
+                <div class="form-group d-md-flex">
+                  <div class="w-50"><label class="checkbox-wrap checkbox-primary">Remember Me <input type="checkbox" name="remember" id="remember" checked><span class="checkmark"></span></label></div>
+                  <div class="w-50 text-md-right"><a href="#" style="color: #fff">Forgot Password</a></div>
+                </div>
+                <div class="form-group text-center">
+                  <p class="mb-0">Don't have an account? <a href="register.php">Register</a></p>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+</body>

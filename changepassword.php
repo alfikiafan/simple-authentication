@@ -44,36 +44,23 @@ if (Input::exists()) {
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Change Password</title>
-</head>
-
-<body>
     <div class="container">
         <form action="" method="post">
             <div class="form-group">
-                <label for="current_password" class="form-label mt-3">Current Password</label>
-                <input type="password" class="form-control" name="current_password" id="current_password">
+                <input id="current_password" type="password" name="current_password" id="current_password" class="form-control" placeholder="Current Password" required>
+                <span toggle="#current_password" class="fa fa-fw fa-eye field-icon toggle-password"></span>
             </div>
-
             <div class="form-group">
-                <label for="new_password" class="form-label mt-3">New Password</label>
-                <input type="password" class="form-control" name="new_password" id="new_password">
+                <input id="new_password" type="password" name="new_password" id="new_password" class="form-control" placeholder="New Password" required>
+                <span toggle="#new_password" class="fa fa-fw fa-eye field-icon toggle-password"></span>
             </div>
-
             <div class="form-group">
-                <label for="new_password_again" class="form-label mt-3">New Password Again</label>
-                <input type="password" class="form-control" name="new_password_again" id="new_password_again">
+                <input type="password" name="new_password_again" id="new_password_again" class="form-control" placeholder="Confirm Password" required>
             </div>
-
-            <input type="hidden" name="token" id="token" value="<?php echo escape(Token::generate()); ?>">
-            <input type="submit" class="btn btn-primary mt-3" value="Change Password">
-
+            <div class="form-group">
+                <input type="hidden" name="token" id="token" value="<?php echo escape(Token::generate()); ?>">
+                <input type="submit" class="form-control btn btn-primary submit px-3" value="Change Password">
+            </div>
             <?php if (isset($errors)) : ?>
                 <div class="mt-3">
                     <?php foreach ($errors as $error) : ?>

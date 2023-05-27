@@ -17,13 +17,20 @@ if (Input::exists()) {
                 'required' => true,
                 'min' => 2,
                 'max' => 50
+            ),
+            'username' => array(
+                'required' => true,
+                'min' => 2,
+                'max' => 20,
+                'unique' => 'users'
             )
         ));
 
-        if ($validation->passed()) {
+        if ($validate->passed()) {
             try {
                 $user->update(array(
-                    'name' => Input::get('name')
+                    'name' => Input::get('name'),
+                    'username' => Input::get('username')
                 ));
 
                 Session::flash('home', 'Your details have been updated.');
@@ -32,30 +39,27 @@ if (Input::exists()) {
                 die($e->getMessage());
             }
         } else {
-            $errors = $validation->errors();
+            $errors = $validate->errors();
         }
     }
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Profil</title>
-</head>
-
-<div class="container">
-    <form action="" method="post">
-        <div class="mt-3">
-            <label for="name" class="form-label mt-3">Nama</label>
-            <input type="text" class="form-control" id="name" name="name" value="<?php echo escape($user->data()->name); ?>">
-        </div>
-
-        <input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
-        <input type="submit" class="btn btn-primary mt-3" value="Update">
+    <div class="container">
+        <form action="" method="post">
+            <div class="form-group">
+                <label for="name" class="form-label text-white">Name</label>
+                <input type="text" id="name" name="name" value="<?php echo escape($user->data()->name); ?>" class="form-control" placeholder="Username" required>
+            </div>
+            <div class="form-group">
+                <label for="username" class="form-label text-white">Username</label>
+                <input type="text" id="username" name="username" value="<?php echo escape($user->data()->username); ?>" class="form-control" placeholder="Username" required>
+            </div>
+            <div class="form-group">
+                <input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
+                <input type="submit" class="form-control btn btn-primary submit px-3" value="Update">
+            </div>
+        </form>
 
         <?php if (!empty($errors)) : ?>
             <div class="mt-3">
@@ -64,5 +68,7 @@ if (Input::exists()) {
                 <?php endforeach; ?>
             </div>
         <?php endif; ?>
-    </form>
-</div>
+    </div>
+</body>
+
+</html>
