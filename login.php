@@ -73,7 +73,7 @@ if(Input::exists()) {
                 </div>
                 <div class="form-group d-md-flex">
                   <div class="w-50"><label class="checkbox-wrap checkbox-primary">Remember Me <input type="checkbox" name="remember" id="remember" checked><span class="checkmark"></span></label></div>
-                  <div class="w-50 text-md-right"><a href="#" style="color: #fff">Forgot Password</a></div>
+                  <div class="w-50 text-md-right"><a href="">Forgot Password</a></div>
                 </div>
                 <div class="form-group text-center">
                   <p class="mb-0">Don't have an account? <a href="register.php">Register</a></p>

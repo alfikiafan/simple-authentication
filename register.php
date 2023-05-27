@@ -74,10 +74,10 @@ if (!$user->isLoggedIn()) {
 </div>
 <?php endif; ?>
 
-<section class="ftco-section">
+<section class="ftco-section py-3">
 	<div class="container">
 		<div class="row justify-content-center">
-			<div class="col-md-6 text-center mb-4">
+			<div class="col-md-6 text-center mb-2">
 				<h2 class="heading-section">Register</h2>
 			</div>
 		</div>

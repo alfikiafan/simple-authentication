@@ -11,4 +11,4 @@
       <?php require_once("js/main.js");?>
     </script>
   </head>
-  <body style="background-image: url(images/background.jpg);">
+  <body>
