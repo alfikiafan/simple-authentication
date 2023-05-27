@@ -3427,13 +3427,13 @@ input[type="button"].btn-block {
 .navbar-nav .nav-item .nav-link:hover {
     color: #fff;
     background-color: #060B13;
-    border-radius: 1rem;
+    border-radius: 0.75rem;
 }
 
 .navbar-nav .nav-item .nav-link.selectedclass {
   background-color: #060B13;
   color: #fff;
-  border-radius: 1rem;
+  border-radius: 0.75rem;
 }
 
 .tab-content > .tab-pane {
@@ -8198,7 +8198,8 @@ h1, h2, h3, h4, h5,
   background: #B8ACC8 !important; }
 
 .ftco-section {
-  padding: 2em 0; }
+  padding: 2em 0;
+  min-height: 100vh; }
 
 .ftco-no-pt {
   padding-top: 0; }
