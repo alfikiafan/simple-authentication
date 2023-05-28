@@ -26,7 +26,7 @@ if(Input::exists()) {
               <div class="alert p-1 mt-1">
                 <div class="alert-danger p-2 mb-1"><span>Username and password doesn't match</span></div>
               </div>
-      <?php }            
+      <?php }
         } else {
           $errors = $validate->errors();
         }
