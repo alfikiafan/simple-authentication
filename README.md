@@ -1,6 +1,6 @@
 # Simple Authentication System
 
-The Simple Authentication System is a login, register, and logout system built using PHP, JavaScript, and CSS without any frameworks. It includes various constraints for input validation, session management, viewing profile details, editing profiles, and changing passwords. The system is designed using Bootstrap 4 for a visually appealing user interface.
+The Simple Authentication System is a lightweight, framework-independent login, register, and logout system developed with PHP, JavaScript, and CSS. It offers a robust set of features including input validation, session management, profile viewing, profile editing, and password changing. The system utilizes Bootstrap 4 to create an intuitive and visually appealing user interface. Behind the scenes, a collection of classes powers the system, enabling seamless configuration management, efficient cookie handling, secure database operations, reliable password hashing, effective input handling, robust session management, CSRF protection, user management, and thorough input validation. With its comprehensive functionality and clean design, this Simple Authentication System provides a reliable and secure foundation for implementing user authentication in PHP web applications.
 
 ## Screenshots  
 ### Register  
